@@ -4,6 +4,13 @@
 	<title>Number Game</title>
 </head>
 <body>
-	<p>the secret number is: <%= number %></p>
+	<% if params["guess"].to_i == number%>
+		<p>the secret number is: <%= number %></p>
+	<% end %>
+	<p><%=params["guess"] + ": " + message%></p>
+	<form>
+		<input type="text" name="guess" />
+		<input type="submit" value="Guess!" />
+	</form>
 </body>
 </html>
