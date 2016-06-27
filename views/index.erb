@@ -4,10 +4,16 @@
 	<title>Number Game</title>
 </head>
 <body>
-	<% if params["guess"].to_i == number%>
-		<p>the secret number is: <%= number %></p>
-	<% end %>
-	<p><%=params["guess"] + ": " + message%></p>
+	<div
+	<%if message == "You got it!" %>
+		style="background: green"
+	<% elsif message.length > 10%>
+		style="background: red"
+	<%else%>
+		style="background: #ffcccc">
+	<%end%>
+		<p><%=params["guess"] + ": " + message%></p>
+	</div>
 	<form>
 		<input type="text" name="guess" />
 		<input type="submit" value="Guess!" />
